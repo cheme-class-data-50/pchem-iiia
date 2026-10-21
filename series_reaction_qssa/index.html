@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>series reaction qssa marimo</title>
+    <script type="module" crossorigin src="./assets/index-s-M1OXjs.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-B0Z9INg1.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-DVplv7_D.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-BrajqUja.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-Dfcbgjhg.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-_LrxgvjW.js">
+    <link rel="modulepreload" crossorigin href="./assets/schemas-Dv42wLFq.js">
+    <link rel="modulepreload" crossorigin href="./assets/isObject-BCaOs5rp.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-oX0TOjjx.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-Cmx0b_zA.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-aFmHgJZY.js">
+    <link rel="modulepreload" crossorigin href="./assets/isArrayLikeObject-DnwgSs_Z.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseMerge-CQpUq7ep.js">
+    <link rel="modulepreload" crossorigin href="./assets/objects-snlMn4yk.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-D9cftcHj.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-Ci2dTZ72.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-VPSq73n8.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-B4K466FK.js">
+    <link rel="modulepreload" crossorigin href="./assets/session-DqoWmb7X.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-CrTnjj37.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-DX8Y2WbJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-DB0hHKMi.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-ldLVeaqm.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-B74pBk57.js">
+    <link rel="modulepreload" crossorigin href="./assets/fullscreen-B9tHcfpV.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-iaThVDkA.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-BrwnTgyK.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-restore-focus-BxEGwIbk.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-DfJ2oMlA.js">
+    <link rel="modulepreload" crossorigin href="./assets/circle-DXf-VWZG.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-COI-NGrx.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-BQNapYaf.js">
+    <link rel="modulepreload" crossorigin href="./assets/I18nProvider-Cg2I_s1_.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-D7O_26UI.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-DTBn5eTb.js">
+    <link rel="modulepreload" crossorigin href="./assets/toast-BGzLGnvw.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-C9TuY18o.js">
+    <link rel="modulepreload" crossorigin href="./assets/paths-bkIFVj8h.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-Mq4gc5kS.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-DOj9Q6uC.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-B_PMVg8T.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-BaPGzeOK.js">
+    <link rel="modulepreload" crossorigin href="./assets/arrays-BqUx5USx.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-Haz_uxEL.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-Mk3-CcoU.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-B_ccBZTp.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-BoBxR50a.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-Wu434mLr.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-lt0JK8Jt.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-k9DpjH68.js">
+    <link rel="modulepreload" crossorigin href="./assets/write-secret-modal-DzKAInL2.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-C5silF6g.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-DcgaW8fn.js">
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-uBIymjUX.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Cny7_yZb.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DBMV4gqt.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-BJvf-MD4.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-C49f7GXV.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-DgRODTW6.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-qhAY4L2r.js">
+    <link rel="modulepreload" crossorigin href="./assets/marked.esm-B_3iMIUq.js">
+    <link rel="modulepreload" crossorigin href="./assets/strings-B2vv-ENv.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BOfh4hMd.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-crT3E0Rm.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DtH-7lot.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BmExfiwX.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-1tmpVXyz.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-LSsCJjA3.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DusFODSa.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-Dc5bKD4z.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-COhSHkCj.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-C7aJJz0Y.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es--06brOip.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-BRkCaSsh.js">
+    <link rel="modulepreload" crossorigin href="./assets/coerce-CpE6kUdX.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-DjNf4SIX.js">
+    <link rel="modulepreload" crossorigin href="./assets/_hasPath-BmRQipI0.js">
+    <link rel="modulepreload" crossorigin href="./assets/hasIn-yw4sIeJR.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseSet-Bpdo9AvU.js">
+    <link rel="modulepreload" crossorigin href="./assets/pick-DKIID_Mo.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-BAJYRhmO.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-C3oDoyFe.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-CKcCbG2G.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-D8O_CYCG.js">
+    <link rel="modulepreload" crossorigin href="./assets/micromark-factory-space-D9Dr-k4J.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-YOKDWASO-BIpRENEC.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-renderer-BG3sp2rs.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-Djr5m5ac.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-BIiRXh_3.js">
+    <link rel="modulepreload" crossorigin href="./assets/useRunCells-B2vUhREg.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderHTML-BbOqmHy3.js">
+    <link rel="modulepreload" crossorigin href="./assets/blob-D5nfNHOo.js">
+    <link rel="modulepreload" crossorigin href="./assets/kbd-pdKBv96t.js">
+    <link rel="modulepreload" crossorigin href="./assets/useInstallPackage-iX1eufdl.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-DCrsa1nH.js">
+    <link rel="modulepreload" crossorigin href="./assets/api-BeC_VSGv.js">
+    <link rel="modulepreload" crossorigin href="./assets/share-BZW3tzEX.js">
+    <link rel="modulepreload" crossorigin href="./assets/events-CbeVJ6OD.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-_Qai_QyX.js">
+    <link rel="modulepreload" crossorigin href="./assets/pair-CaQyK6En.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-Gl5nCA8C.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-BOKzA3tF.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-eAtVhbNZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-C1rnl-0o.js">
+    <link rel="modulepreload" crossorigin href="./assets/html-to-image-DK9Zl1lU.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-DCJXy66H.js">
+    <link rel="modulepreload" crossorigin href="./assets/switch-CTaiAjrz.js">
+    <link rel="modulepreload" crossorigin href="./assets/tabs-BuQlZFbt.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-DG7Ap4H4.js">
+    <link rel="modulepreload" crossorigin href="./assets/eye-off-CxVozGAC.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-cw-Qw1f8Jhy.js">
+    <link rel="modulepreload" crossorigin href="./assets/tree-actions-GM5E_bUs.js">
+    <link rel="modulepreload" crossorigin href="./assets/ellipsis-63DyBLHQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/external-link-UrX9KO36.js">
+    <link rel="modulepreload" crossorigin href="./assets/spinner-DyNE-o8o.js">
+    <link rel="modulepreload" crossorigin href="./assets/message-circle-C3rKm8_a.js">
+    <link rel="modulepreload" crossorigin href="./assets/hat-glasses-C8RhSVii.js">
+    <link rel="modulepreload" crossorigin href="./assets/package-GSoSTiIK.js">
+    <link rel="modulepreload" crossorigin href="./assets/datasource-Cq6x_5ML.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-DTaqCu_d.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-XsPO8hNi.js">
+    <link rel="modulepreload" crossorigin href="./assets/cell-link-LSth_8hT.js">
+    <link rel="modulepreload" crossorigin href="./assets/MarimoErrorOutput-D60XkCny.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDateFormatter-DA-62E-Y.js">
+    <link rel="modulepreload" crossorigin href="./assets/en-US-Buu61juQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/isValid-q_Ad80ug.js">
+    <link rel="modulepreload" crossorigin href="./assets/dates-BbFQ2oE4.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-CNPGWpMu.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-Bq_nmf5u.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-D5bOh7g6.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-CLRkNgm7.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-mT3CGest.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-icons.esm-D6tfmvq8.js">
+    <link rel="modulepreload" crossorigin href="./assets/extends-CvVTau-c.js">
+    <link rel="modulepreload" crossorigin href="./assets/objectWithoutPropertiesLoose-Do6ywDBO.js">
+    <link rel="modulepreload" crossorigin href="./assets/useIframeCapabilities-CwTkczVN.js">
+    <link rel="modulepreload" crossorigin href="./assets/error-banner-Cd69vvyX.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-CaQYvazl.js">
+    <link rel="modulepreload" crossorigin href="./assets/formats-yZ06h1Pl.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-vrvqpuKJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-resizable-panels.browser.esm-Dbe0MrFr.js">
+    <link rel="modulepreload" crossorigin href="./assets/JsonOutput-D6HIIsCb.js">
+    <link rel="modulepreload" crossorigin href="./assets/chart-no-axes-column-C4_v6fQW.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-function-_W_Lo0P4.js">
+    <link rel="modulepreload" crossorigin href="./assets/spec-BfSBcO5B.js">
+    <link rel="modulepreload" crossorigin href="./assets/semaphore-BjoL5P0h.js">
+    <link rel="modulepreload" crossorigin href="./assets/fileToBase64-BgBraYAr.js">
+    <link rel="modulepreload" crossorigin href="./assets/useBoolean-BDD6_xQQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/code-xml-SQaZqvcO.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-headphone-Dl35U6h3.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-BPBVl9pl.js">
+    <link rel="modulepreload" crossorigin href="./assets/image-wZvTj8WY.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-icons-CdJgUy-I.js">
+    <link rel="modulepreload" crossorigin href="./assets/globe-UdPdIbF7.js">
+    <link rel="modulepreload" crossorigin href="./assets/esm-CI_o7NhW.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAddCell-GR7eEQrT.js">
+    <link rel="modulepreload" crossorigin href="./assets/readonly-python-code-DCSMIsTX.js">
+    <link rel="modulepreload" crossorigin href="./assets/data-grid-types-DgHVN_Zz.js">
+    <link rel="modulepreload" crossorigin href="./assets/glide-utils-CIrAxdjv.js">
+    <link rel="modulepreload" crossorigin href="./assets/column-preview-Cm2D6vyX.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-BPmgQFnh.js">
+    <link rel="modulepreload" crossorigin href="./assets/triangle-alert-DmIqR8sY.js">
+    <link rel="modulepreload" crossorigin href="./assets/prop-types-Djf4O40e.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-Cqst59WX.js">
+    <link rel="modulepreload" crossorigin href="./assets/package-data-dv4FBHxR.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-export-DzhB1FrN.js">
+    <link rel="modulepreload" crossorigin href="./assets/renderShortcut-BkVJQ_Zh.js">
+    <link rel="modulepreload" crossorigin href="./assets/bundle.esm-D3tw5rqW.js">
+    <link rel="modulepreload" crossorigin href="./assets/icons-CiZ_8zS-.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeepCompareMemoize-DFIVN9dn.js">
+    <link rel="modulepreload" crossorigin href="./assets/pathUtils-DPmlLd-r.js">
+    <link rel="modulepreload" crossorigin href="./assets/floating-outline-XD9FAV-f.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-0PFKL3SH.css">
+    <link rel="stylesheet" crossorigin href="./assets/markdown-renderer-DjIHoF9Z.css">
+    <link rel="stylesheet" crossorigin href="./assets/JsonOutput-B0GmlMnR.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-Bcdzex-3.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "# /// script\n# requires-python = \"\u003E=3.11\"\n# dependencies = [\"marimo\", \"matplotlib==3.10.8\", \"numpy==2.4.3\"]\n# \n# [tool.marimo.export]\n# lock_kind = \"observed\"\n# ///\n\nimport marimo\n\n__generated_with = \"0.25.2\"\napp = marimo.App(width=\"medium\")\n\n\n@app.cell\ndef _():\n    import marimo as mo\n    import matplotlib.pyplot as plt\n    import numpy as np\n\n    def exact_concentrations(t, ka, kb):\n        \"\"\"Exact normalized concentrations for A -\u003E I -\u003E P with A0 = 1.\"\"\"\n        A = np.exp(-ka * t)\n\n        if np.isclose(ka, kb):\n            I = ka * t * np.exp(-ka * t)\n        else:\n            I = ka / (kb - ka) * (\n                np.exp(-ka * t) - np.exp(-kb * t)\n            )\n\n        P = 1.0 - A - I\n        return A, I, P\n\n    def qssa_intermediate(t, ka, kb):\n        \"\"\"QSSA estimate of the intermediate concentration.\"\"\"\n        A = np.exp(-ka * t)\n        return (ka / kb) * A\n\n    return exact_concentrations, mo, np, plt, qssa_intermediate\n\n\n@app.cell\ndef _(mo):\n    mo.md(r\"\"\"\n    # Series reaction and the quasi-steady-state approximation (QSSA)\n\n    Consider the consecutive first-order reaction\n\n    $$\n    \\mathrm{A}\n    \\xrightarrow{k_{\\mathrm{a}}}\n    \\mathrm{I}\n    \\xrightarrow{k_{\\mathrm{b}}}\n    \\mathrm{P}\n    $$\n\n    where **I is an intermediate**.\n\n    The exact material balance for the intermediate is\n\n    $$\n    \\frac{\\mathrm{d}[\\mathrm{I}]}{\\mathrm{d}t}\n    =\n    k_{\\mathrm{a}}[\\mathrm{A}]\n    -\n    k_{\\mathrm{b}}[\\mathrm{I}].\n    $$\n\n    The **quasi-steady-state approximation (QSSA)** assumes that,\n    after a short initial transient,\n\n    $$\n    \\frac{\\mathrm{d}[\\mathrm{I}]}{\\mathrm{d}t}\n    \\approx 0,\n    $$\n\n    so that\n\n    $$\n    [\\mathrm{I}]_{\\mathrm{QSSA}}\n    \\approx\n    \\frac{k_{\\mathrm{a}}}{k_{\\mathrm{b}}}[\\mathrm{A}].\n    $$\n\n    The characteristic times of the two steps are\n\n    $$\n    \\tau_{\\mathrm{a}}=\\frac{1}{k_{\\mathrm{a}}},\n    \\qquad\n    \\tau_{\\mathrm{b}}=\\frac{1}{k_{\\mathrm{b}}}.\n    $$\n\n    QSSA becomes useful when the intermediate adjusts much faster\n    than the reactant changes:\n\n    $$\n    \\tau_{\\mathrm{b}}\\ll\\tau_{\\mathrm{a}}\n    \\qquad\\text{or equivalently}\\qquad\n    k_{\\mathrm{b}}\\gg k_{\\mathrm{a}}.\n    $$\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(mo):\n    kb_slider = mo.ui.slider(\n        steps=[0.5, 1, 2, 5, 10, 20, 50, 100],\n        value=10,\n        label=\"k_b (s\u207b\u00b9)\",\n        show_value=True,\n        full_width=True,\n    )\n\n    mo.vstack(\n        [\n            mo.md(\n                r\"\"\"\n                ## Interactive comparison\n\n                We fix \\(k_{\\mathrm{a}}=1\\ \\mathrm{s}^{-1}\\) and vary\n                \\(k_{\\mathrm{b}}\\).\n\n                - **Solid curves:** exact concentrations\n                - **Dashed black curve:** QSSA prediction for the intermediate\n                - **Shaded region:** an illustrative initial-transient window\n                  of three fast time constants, \\(3/k_{\\mathrm{b}}\\)\n\n                The shaded region is only a visual guide. It is **not** a\n                strict QSSA boundary.\n                \"\"\"\n            ),\n            kb_slider,\n        ]\n    )\n    return (kb_slider,)\n\n\n@app.cell\ndef _(exact_concentrations, kb_slider, mo, np, plt, qssa_intermediate):\n    ka = 1.0\n    kb = float(kb_slider.value)\n\n    t = np.linspace(0, 6, 1200)\n\n    A, I, P = exact_concentrations(t, ka, kb)\n    I_qssa = qssa_intermediate(t, ka, kb)\n\n    fig, ax = plt.subplots(figsize=(8, 5))\n\n    ax.plot(t, A, lw=2.2, label=r\"$\\mathrm{A}$ (exact)\")\n    ax.plot(t, I, lw=2.2, label=r\"$\\mathrm{I}$ (exact)\")\n    ax.plot(t, P, lw=2.2, label=r\"$\\mathrm{P}$ (exact)\")\n    ax.plot(\n        t,\n        I_qssa,\n        \"k--\",\n        lw=2.0,\n        label=r\"$\\mathrm{I}$ (QSSA)\",\n    )\n\n    t_transient = min(3.0 / kb, t[-1])\n    ax.axvspan(\n        0,\n        t_transient,\n        alpha=0.10,\n        label=r\"initial transient ($\\sim 3/k_{\\mathrm{b}}$)\",\n    )\n\n    ax.set_xlabel(r\"Time, $t$ / s\")\n    ax.set_ylabel(\n        r\"Normalized concentration, $C_i/C_{\\mathrm{A},0}$\"\n    )\n    ax.set_title(\n        rf\"$\\mathrm{{A}}\\rightarrow\\mathrm{{I}}\\rightarrow\"\n        rf\"\\mathrm{{P}}$:  \"\n        rf\"$k_{{\\mathrm{{a}}}}=1\\ \\mathrm{{s}}^{{-1}}$, \"\n        rf\"$k_{{\\mathrm{{b}}}}={kb:g}\\ \\mathrm{{s}}^{{-1}}$\"\n    )\n    ax.set_xlim(0, 6)\n    ax.set_ylim(0, max(1.05, 1.08 * np.max(I_qssa)))\n    ax.grid(alpha=0.2)\n    ax.legend(frameon=False, ncol=2)\n    fig.tight_layout()\n\n    R = kb / ka\n    tau_a = 1.0 / ka\n    tau_b = 1.0 / kb\n\n    if R \u003E= 20:\n        verdict = (\n            \"QSSA is **good after the short initial transient**.\"\n        )\n    elif R \u003E= 5:\n        verdict = (\n            \"QSSA is **usable only as a rough approximation**.\"\n        )\n    else:\n        verdict = (\n            \"QSSA is **not reliable** for this timescale ratio.\"\n        )\n\n    if R \u003E 1:\n        post_error = 100.0 / R\n        error_text = (\n            \"For this simple mechanism, the post-transient relative \"\n            \"error in the QSSA estimate of \"\n            rf\"$[\\mathrm{{I}}]$ is approximately \"\n            rf\"$k_{{\\mathrm{{a}}}}/k_{{\\mathrm{{b}}}}=1/R$, \"\n            f\"or about **{post_error:.1f}%**.\"\n        )\n    else:\n        error_text = (\n            \"The intermediate-removal step is not faster than its \"\n            \"formation, so the basic timescale requirement for QSSA \"\n            \"is not satisfied.\"\n        )\n\n    explanation = mo.md(\n        rf\"\"\"\n        ### Interpretation\n\n        - \\(k_{{\\mathrm{{a}}}}=1\\ \\mathrm{{s}}^{{-1}}\\)\n        - \\(k_{{\\mathrm{{b}}}}={kb:g}\\ \\mathrm{{s}}^{{-1}}\\)\n        - \\(\\tau_{{\\mathrm{{a}}}}=1/k_{{\\mathrm{{a}}}}\n          ={tau_a:.3g}\\ \\mathrm{{s}}\\)\n        - \\(\\tau_{{\\mathrm{{b}}}}=1/k_{{\\mathrm{{b}}}}\n          ={tau_b:.3g}\\ \\mathrm{{s}}\\)\n        - {verdict}\n        - {error_text}\n\n        **Important:** QSSA can still fail very near \\(t=0\\), because the\n        exact initial condition is\n\n        $$\n        [\\mathrm{{I}}](0)=0,\n        $$\n\n        whereas the algebraic QSSA relation predicts a nonzero value.\n\n        When QSSA is valid, the formation and consumption rates of the\n        intermediate nearly balance:\n\n        $$\n        k_{{\\mathrm{{a}}}}[\\mathrm{{A}}]\n        \\approx\n        k_{{\\mathrm{{b}}}}[\\mathrm{{I}}].\n        $$\n        \"\"\"\n    )\n\n    mo.vstack([fig, explanation])\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+<marimo-code hidden="">%23%20%2F%2F%2F%20script%0A%23%20requires-python%20%3D%20%22%3E%3D3.11%22%0A%23%20dependencies%20%3D%20%5B%22marimo%22%2C%20%22matplotlib%3D%3D3.10.8%22%2C%20%22numpy%3D%3D2.4.3%22%5D%0A%23%20%0A%23%20%5Btool.marimo.export%5D%0A%23%20lock_kind%20%3D%20%22observed%22%0A%23%20%2F%2F%2F%0A%0Aimport%20marimo%0A%0A__generated_with%20%3D%20%220.25.2%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20import%20matplotlib.pyplot%20as%20plt%0A%20%20%20%20import%20numpy%20as%20np%0A%0A%20%20%20%20def%20exact_concentrations(t%2C%20ka%2C%20kb)%3A%0A%20%20%20%20%20%20%20%20%22%22%22Exact%20normalized%20concentrations%20for%20A%20-%3E%20I%20-%3E%20P%20with%20A0%20%3D%201.%22%22%22%0A%20%20%20%20%20%20%20%20A%20%3D%20np.exp(-ka%20*%20t)%0A%0A%20%20%20%20%20%20%20%20if%20np.isclose(ka%2C%20kb)%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20I%20%3D%20ka%20*%20t%20*%20np.exp(-ka%20*%20t)%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20I%20%3D%20ka%20%2F%20(kb%20-%20ka)%20*%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20np.exp(-ka%20*%20t)%20-%20np.exp(-kb%20*%20t)%0A%20%20%20%20%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20%20%20%20%20P%20%3D%201.0%20-%20A%20-%20I%0A%20%20%20%20%20%20%20%20return%20A%2C%20I%2C%20P%0A%0A%20%20%20%20def%20qssa_intermediate(t%2C%20ka%2C%20kb)%3A%0A%20%20%20%20%20%20%20%20%22%22%22QSSA%20estimate%20of%20the%20intermediate%20concentration.%22%22%22%0A%20%20%20%20%20%20%20%20A%20%3D%20np.exp(-ka%20*%20t)%0A%20%20%20%20%20%20%20%20return%20(ka%20%2F%20kb)%20*%20A%0A%0A%20%20%20%20return%20exact_concentrations%2C%20mo%2C%20np%2C%20plt%2C%20qssa_intermediate%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Series%20reaction%20and%20the%20quasi-steady-state%20approximation%20(QSSA)%0A%0A%20%20%20%20Consider%20the%20consecutive%20first-order%20reaction%0A%0A%20%20%20%20%24%24%0A%20%20%20%20%5Cmathrm%7BA%7D%0A%20%20%20%20%5Cxrightarrow%7Bk_%7B%5Cmathrm%7Ba%7D%7D%7D%0A%20%20%20%20%5Cmathrm%7BI%7D%0A%20%20%20%20%5Cxrightarrow%7Bk_%7B%5Cmathrm%7Bb%7D%7D%7D%0A%20%20%20%20%5Cmathrm%7BP%7D%0A%20%20%20%20%24%24%0A%0A%20%20%20%20where%20**I%20is%20an%20intermediate**.%0A%0A%20%20%20%20The%20exact%20material%20balance%20for%20the%20intermediate%20is%0A%0A%20%20%20%20%24%24%0A%20%20%20%20%5Cfrac%7B%5Cmathrm%7Bd%7D%5B%5Cmathrm%7BI%7D%5D%7D%7B%5Cmathrm%7Bd%7Dt%7D%0A%20%20%20%20%3D%0A%20%20%20%20k_%7B%5Cmathrm%7Ba%7D%7D%5B%5Cmathrm%7BA%7D%5D%0A%20%20%20%20-%0A%20%20%20%20k_%7B%5Cmathrm%7Bb%7D%7D%5B%5Cmathrm%7BI%7D%5D.%0A%20%20%20%20%24%24%0A%0A%20%20%20%20The%20**quasi-steady-state%20approximation%20(QSSA)**%20assumes%20that%2C%0A%20%20%20%20after%20a%20short%20initial%20transient%2C%0A%0A%20%20%20%20%24%24%0A%20%20%20%20%5Cfrac%7B%5Cmathrm%7Bd%7D%5B%5Cmathrm%7BI%7D%5D%7D%7B%5Cmathrm%7Bd%7Dt%7D%0A%20%20%20%20%5Capprox%200%2C%0A%20%20%20%20%24%24%0A%0A%20%20%20%20so%20that%0A%0A%20%20%20%20%24%24%0A%20%20%20%20%5B%5Cmathrm%7BI%7D%5D_%7B%5Cmathrm%7BQSSA%7D%7D%0A%20%20%20%20%5Capprox%0A%20%20%20%20%5Cfrac%7Bk_%7B%5Cmathrm%7Ba%7D%7D%7D%7Bk_%7B%5Cmathrm%7Bb%7D%7D%7D%5B%5Cmathrm%7BA%7D%5D.%0A%20%20%20%20%24%24%0A%0A%20%20%20%20The%20characteristic%20times%20of%20the%20two%20steps%20are%0A%0A%20%20%20%20%24%24%0A%20%20%20%20%5Ctau_%7B%5Cmathrm%7Ba%7D%7D%3D%5Cfrac%7B1%7D%7Bk_%7B%5Cmathrm%7Ba%7D%7D%7D%2C%0A%20%20%20%20%5Cqquad%0A%20%20%20%20%5Ctau_%7B%5Cmathrm%7Bb%7D%7D%3D%5Cfrac%7B1%7D%7Bk_%7B%5Cmathrm%7Bb%7D%7D%7D.%0A%20%20%20%20%24%24%0A%0A%20%20%20%20QSSA%20becomes%20useful%20when%20the%20intermediate%20adjusts%20much%20faster%0A%20%20%20%20than%20the%20reactant%20changes%3A%0A%0A%20%20%20%20%24%24%0A%20%20%20%20%5Ctau_%7B%5Cmathrm%7Bb%7D%7D%5Cll%5Ctau_%7B%5Cmathrm%7Ba%7D%7D%0A%20%20%20%20%5Cqquad%5Ctext%7Bor%20equivalently%7D%5Cqquad%0A%20%20%20%20k_%7B%5Cmathrm%7Bb%7D%7D%5Cgg%20k_%7B%5Cmathrm%7Ba%7D%7D.%0A%20%20%20%20%24%24%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20kb_slider%20%3D%20mo.ui.slider(%0A%20%20%20%20%20%20%20%20steps%3D%5B0.5%2C%201%2C%202%2C%205%2C%2010%2C%2020%2C%2050%2C%20100%5D%2C%0A%20%20%20%20%20%20%20%20value%3D10%2C%0A%20%20%20%20%20%20%20%20label%3D%22k_b%20(s%E2%81%BB%C2%B9)%22%2C%0A%20%20%20%20%20%20%20%20show_value%3DTrue%2C%0A%20%20%20%20%20%20%20%20full_width%3DTrue%2C%0A%20%20%20%20)%0A%0A%20%20%20%20mo.vstack(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20r%22%22%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%23%20Interactive%20comparison%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20We%20fix%20%5C(k_%7B%5Cmathrm%7Ba%7D%7D%3D1%5C%20%5Cmathrm%7Bs%7D%5E%7B-1%7D%5C)%20and%20vary%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5C(k_%7B%5Cmathrm%7Bb%7D%7D%5C).%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-%20**Solid%20curves%3A**%20exact%20concentrations%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-%20**Dashed%20black%20curve%3A**%20QSSA%20prediction%20for%20the%20intermediate%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-%20**Shaded%20region%3A**%20an%20illustrative%20initial-transient%20window%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20of%20three%20fast%20time%20constants%2C%20%5C(3%2Fk_%7B%5Cmathrm%7Bb%7D%7D%5C)%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20The%20shaded%20region%20is%20only%20a%20visual%20guide.%20It%20is%20**not**%20a%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20strict%20QSSA%20boundary.%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20kb_slider%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%20%20%20%20return%20(kb_slider%2C)%0A%0A%0A%40app.cell%0Adef%20_(exact_concentrations%2C%20kb_slider%2C%20mo%2C%20np%2C%20plt%2C%20qssa_intermediate)%3A%0A%20%20%20%20ka%20%3D%201.0%0A%20%20%20%20kb%20%3D%20float(kb_slider.value)%0A%0A%20%20%20%20t%20%3D%20np.linspace(0%2C%206%2C%201200)%0A%0A%20%20%20%20A%2C%20I%2C%20P%20%3D%20exact_concentrations(t%2C%20ka%2C%20kb)%0A%20%20%20%20I_qssa%20%3D%20qssa_intermediate(t%2C%20ka%2C%20kb)%0A%0A%20%20%20%20fig%2C%20ax%20%3D%20plt.subplots(figsize%3D(8%2C%205))%0A%0A%20%20%20%20ax.plot(t%2C%20A%2C%20lw%3D2.2%2C%20label%3Dr%22%24%5Cmathrm%7BA%7D%24%20(exact)%22)%0A%20%20%20%20ax.plot(t%2C%20I%2C%20lw%3D2.2%2C%20label%3Dr%22%24%5Cmathrm%7BI%7D%24%20(exact)%22)%0A%20%20%20%20ax.plot(t%2C%20P%2C%20lw%3D2.2%2C%20label%3Dr%22%24%5Cmathrm%7BP%7D%24%20(exact)%22)%0A%20%20%20%20ax.plot(%0A%20%20%20%20%20%20%20%20t%2C%0A%20%20%20%20%20%20%20%20I_qssa%2C%0A%20%20%20%20%20%20%20%20%22k--%22%2C%0A%20%20%20%20%20%20%20%20lw%3D2.0%2C%0A%20%20%20%20%20%20%20%20label%3Dr%22%24%5Cmathrm%7BI%7D%24%20(QSSA)%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20t_transient%20%3D%20min(3.0%20%2F%20kb%2C%20t%5B-1%5D)%0A%20%20%20%20ax.axvspan(%0A%20%20%20%20%20%20%20%200%2C%0A%20%20%20%20%20%20%20%20t_transient%2C%0A%20%20%20%20%20%20%20%20alpha%3D0.10%2C%0A%20%20%20%20%20%20%20%20label%3Dr%22initial%20transient%20(%24%5Csim%203%2Fk_%7B%5Cmathrm%7Bb%7D%7D%24)%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20ax.set_xlabel(r%22Time%2C%20%24t%24%20%2F%20s%22)%0A%20%20%20%20ax.set_ylabel(%0A%20%20%20%20%20%20%20%20r%22Normalized%20concentration%2C%20%24C_i%2FC_%7B%5Cmathrm%7BA%7D%2C0%7D%24%22%0A%20%20%20%20)%0A%20%20%20%20ax.set_title(%0A%20%20%20%20%20%20%20%20rf%22%24%5Cmathrm%7B%7BA%7D%7D%5Crightarrow%5Cmathrm%7B%7BI%7D%7D%5Crightarrow%22%0A%20%20%20%20%20%20%20%20rf%22%5Cmathrm%7B%7BP%7D%7D%24%3A%20%20%22%0A%20%20%20%20%20%20%20%20rf%22%24k_%7B%7B%5Cmathrm%7B%7Ba%7D%7D%7D%7D%3D1%5C%20%5Cmathrm%7B%7Bs%7D%7D%5E%7B%7B-1%7D%7D%24%2C%20%22%0A%20%20%20%20%20%20%20%20rf%22%24k_%7B%7B%5Cmathrm%7B%7Bb%7D%7D%7D%7D%3D%7Bkb%3Ag%7D%5C%20%5Cmathrm%7B%7Bs%7D%7D%5E%7B%7B-1%7D%7D%24%22%0A%20%20%20%20)%0A%20%20%20%20ax.set_xlim(0%2C%206)%0A%20%20%20%20ax.set_ylim(0%2C%20max(1.05%2C%201.08%20*%20np.max(I_qssa)))%0A%20%20%20%20ax.grid(alpha%3D0.2)%0A%20%20%20%20ax.legend(frameon%3DFalse%2C%20ncol%3D2)%0A%20%20%20%20fig.tight_layout()%0A%0A%20%20%20%20R%20%3D%20kb%20%2F%20ka%0A%20%20%20%20tau_a%20%3D%201.0%20%2F%20ka%0A%20%20%20%20tau_b%20%3D%201.0%20%2F%20kb%0A%0A%20%20%20%20if%20R%20%3E%3D%2020%3A%0A%20%20%20%20%20%20%20%20verdict%20%3D%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22QSSA%20is%20**good%20after%20the%20short%20initial%20transient**.%22%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20elif%20R%20%3E%3D%205%3A%0A%20%20%20%20%20%20%20%20verdict%20%3D%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22QSSA%20is%20**usable%20only%20as%20a%20rough%20approximation**.%22%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20verdict%20%3D%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22QSSA%20is%20**not%20reliable**%20for%20this%20timescale%20ratio.%22%0A%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20if%20R%20%3E%201%3A%0A%20%20%20%20%20%20%20%20post_error%20%3D%20100.0%20%2F%20R%0A%20%20%20%20%20%20%20%20error_text%20%3D%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22For%20this%20simple%20mechanism%2C%20the%20post-transient%20relative%20%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22error%20in%20the%20QSSA%20estimate%20of%20%22%0A%20%20%20%20%20%20%20%20%20%20%20%20rf%22%24%5B%5Cmathrm%7B%7BI%7D%7D%5D%24%20is%20approximately%20%22%0A%20%20%20%20%20%20%20%20%20%20%20%20rf%22%24k_%7B%7B%5Cmathrm%7B%7Ba%7D%7D%7D%7D%2Fk_%7B%7B%5Cmathrm%7B%7Bb%7D%7D%7D%7D%3D1%2FR%24%2C%20%22%0A%20%20%20%20%20%20%20%20%20%20%20%20f%22or%20about%20**%7Bpost_error%3A.1f%7D%25**.%22%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20error_text%20%3D%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22The%20intermediate-removal%20step%20is%20not%20faster%20than%20its%20%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22formation%2C%20so%20the%20basic%20timescale%20requirement%20for%20QSSA%20%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22is%20not%20satisfied.%22%0A%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20explanation%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20rf%22%22%22%0A%20%20%20%20%20%20%20%20%23%23%23%20Interpretation%0A%0A%20%20%20%20%20%20%20%20-%20%5C(k_%7B%7B%5Cmathrm%7B%7Ba%7D%7D%7D%7D%3D1%5C%20%5Cmathrm%7B%7Bs%7D%7D%5E%7B%7B-1%7D%7D%5C)%0A%20%20%20%20%20%20%20%20-%20%5C(k_%7B%7B%5Cmathrm%7B%7Bb%7D%7D%7D%7D%3D%7Bkb%3Ag%7D%5C%20%5Cmathrm%7B%7Bs%7D%7D%5E%7B%7B-1%7D%7D%5C)%0A%20%20%20%20%20%20%20%20-%20%5C(%5Ctau_%7B%7B%5Cmathrm%7B%7Ba%7D%7D%7D%7D%3D1%2Fk_%7B%7B%5Cmathrm%7B%7Ba%7D%7D%7D%7D%0A%20%20%20%20%20%20%20%20%20%20%3D%7Btau_a%3A.3g%7D%5C%20%5Cmathrm%7B%7Bs%7D%7D%5C)%0A%20%20%20%20%20%20%20%20-%20%5C(%5Ctau_%7B%7B%5Cmathrm%7B%7Bb%7D%7D%7D%7D%3D1%2Fk_%7B%7B%5Cmathrm%7B%7Bb%7D%7D%7D%7D%0A%20%20%20%20%20%20%20%20%20%20%3D%7Btau_b%3A.3g%7D%5C%20%5Cmathrm%7B%7Bs%7D%7D%5C)%0A%20%20%20%20%20%20%20%20-%20%7Bverdict%7D%0A%20%20%20%20%20%20%20%20-%20%7Berror_text%7D%0A%0A%20%20%20%20%20%20%20%20**Important%3A**%20QSSA%20can%20still%20fail%20very%20near%20%5C(t%3D0%5C)%2C%20because%20the%0A%20%20%20%20%20%20%20%20exact%20initial%20condition%20is%0A%0A%20%20%20%20%20%20%20%20%24%24%0A%20%20%20%20%20%20%20%20%5B%5Cmathrm%7B%7BI%7D%7D%5D(0)%3D0%2C%0A%20%20%20%20%20%20%20%20%24%24%0A%0A%20%20%20%20%20%20%20%20whereas%20the%20algebraic%20QSSA%20relation%20predicts%20a%20nonzero%20value.%0A%0A%20%20%20%20%20%20%20%20When%20QSSA%20is%20valid%2C%20the%20formation%20and%20consumption%20rates%20of%20the%0A%20%20%20%20%20%20%20%20intermediate%20nearly%20balance%3A%0A%0A%20%20%20%20%20%20%20%20%24%24%0A%20%20%20%20%20%20%20%20k_%7B%7B%5Cmathrm%7B%7Ba%7D%7D%7D%7D%5B%5Cmathrm%7B%7BA%7D%7D%5D%0A%20%20%20%20%20%20%20%20%5Capprox%0A%20%20%20%20%20%20%20%20k_%7B%7B%5Cmathrm%7B%7Bb%7D%7D%7D%7D%5B%5Cmathrm%7B%7BI%7D%7D%5D.%0A%20%20%20%20%20%20%20%20%24%24%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%0A%0A%20%20%20%20mo.vstack(%5Bfig%2C%20explanation%5D)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.25.2",
+            "serverToken": "unused",
+            "config": {"ai": {"allow_provider_config": true, "custom_providers": {}, "enabled": true, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "auto_close_pairs": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "code_lens": true, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": true, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "uv"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"sql_output": "auto", "width": "medium"},
+            "layout": null,
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+  </body>
+</html>
